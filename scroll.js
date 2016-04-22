@@ -1,21 +1,12 @@
-//first try, simper one
-$('#nav-button-1').click(function(){
-    $('html, body').stop().animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500);
-    return false;
-});
+$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
 
-$('#nav-button-2').click(function(){
-    $('html, body').stop().animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500);
-    return false;
-});
+	    var target = this.hash;
+	    var $target = $(target);
 
-$('#nav-button-3').click(function(){
-    $('html, body').stop().animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500);
-    return false;
-});
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
